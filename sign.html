@@ -1,0 +1,153 @@
+<!-- SIGNATURE INPUT FORM -->
+<div style="max-width:560px;font-family:Arial,sans-serif;margin-bottom:16px;padding:12px;border:1px dashed #d1d5db;border-radius:8px;">
+  <div style="font-weight:700;margin-bottom:8px;">Signature generator</div>
+
+  <div style="margin-bottom:6px;">
+    <label>Greeting</label><br />
+    <input id="sigGreeting" value="Best regards," style="width:100%;padding:6px;" />
+  </div>
+
+  <div style="margin-bottom:6px;">
+    <label>Name</label><br />
+    <input id="sigName" value="Mr. Nguyễn Đình Toàn Thiện" style="width:100%;padding:6px;" />
+  </div>
+
+  <div style="margin-bottom:6px;">
+    <label>Title</label><br />
+    <input id="sigTitle" value="Director" style="width:100%;padding:6px;" />
+  </div>
+
+  <div style="margin-bottom:6px;">
+    <label>Personal phone</label><br />
+    <input id="sigPhone" value="0974 932 991" style="width:100%;padding:6px;" />
+  </div>
+
+  <div style="margin-bottom:6px;">
+    <label>Personal email</label><br />
+    <input id="sigEmail" value="thien.nguyen@vidratek.com" style="width:100%;padding:6px;" />
+  </div>
+</div>
+
+<script>
+  function bindSignature() {
+    document.getElementById('greetingText').innerText =
+      document.getElementById('sigGreeting').value;
+
+    document.getElementById('nameText').innerText =
+      document.getElementById('sigName').value;
+
+    document.getElementById('titleText').innerText =
+      document.getElementById('sigTitle').value;
+
+    const phone = document.getElementById('sigPhone').value;
+    document.getElementById('phoneText').innerText = phone;
+    document.getElementById('phoneLink').href = 'tel:' + phone.replace(/\s/g, '');
+
+    const email = document.getElementById('sigEmail').value;
+    document.getElementById('emailText').innerText = email;
+    document.getElementById('emailLink').href = 'mailto:' + email;
+  }
+
+  document.querySelectorAll('#sigGreeting,#sigName,#sigTitle,#sigPhone,#sigEmail')
+    .forEach(el => el.addEventListener('input', bindSignature));
+
+  bindSignature();
+</script>
+
+
+<!-- GREETING -->
+<div id="greetingText" style="
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  font-size:14px;
+  line-height:20px;
+  color:#111827;
+  margin-bottom:10px;
+">
+  Best regards,
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0"
+  style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;max-width:560px;width:100%;">
+  <tr>
+    <td style="width:6px;background:#b91c1c;border-radius:10px 0 0 10px;"></td>
+
+    <td style="padding:12px 14px;border:1px solid #efefef;border-left:0;border-radius:0 10px 10px 0;">
+      <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+        <tr>
+          <!-- LOGO -->
+          <td valign="top" style="width:64px;padding-right:12px;">
+            <img src="https://vidratek.github.io/vidratek-public-assets/logo.png" width="56" height="56" alt="VIDRATEK"
+              style="display:block;border:0;border-radius:12px;background:#f6f6f6;" />
+          </td>
+
+          <!-- INFO -->
+          <td valign="top">
+            <!-- NAME -->
+            <div id="nameText" style="font-size:16px;line-height:20px;font-weight:700;color:#111827;">
+              Mr. Nguyễn Đình Toàn Thiện
+            </div>
+
+            <!-- TITLE + WEBSITE (with WEB ICON) -->
+            <div id="titleText" style="font-size:12px;line-height:16px;color:#6b7280;margin-top:2px;">
+              Director
+              <span style="color:#d1d5db;">&nbsp;-&nbsp;</span>
+
+              <!-- WEB ICON -->
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABGJJREFUSImVlVtsFGUUx3/nm+1CgroFKuDsFEjZeAkKKJoI3kKEjpTQ4iUhhAd5UPQFJL5Iog80MfgoCDFESDQGX3wAWqR2uYjGhxKlXgAhJvVCZ2YVitCGW3e7+x0fdpZuGypykkkmv3PO/3xzvsk5wn/YIdedXjKmWWCZQoNAOnaFwB8KBxxr25fkcr1jacjNYEc67Tkim4A1gBPjHlQT5SwpAbNiXlT4xKq2NkVROFrLjAYH6+ubHZHTCi0ishMoCRwoWDsXkVOInCpYOwfoAEoisgtY4Yiczrru8v8skPW8daq6F5GvnWQyo6oNwFkdGlq5PJe7VolbnstdS+bzK4FeVW1wkskM8A3G7Mt63rqbFjhYX98MbEFka1cQrLDFYgZoFNWN/rlzV0efbFFf3xVRfQtoLA0OzuoKwxZEtgJbqr/EVHquqruBvFp7ZYHn+Vj7Jqp/9kfRntHiFeuPoj0CZ40xGxa67gKsDYCrGPPZEc9LQ3zJWc/bBSwDuoAngbtjjQLlP+YSIpdQnR3zk0AqfjzgjphfA7oVHgD2PReGr5pDrjsdWCMi7/ph+IIfhlMUXooTdgCfA92o9ivUKNQIXAF+QeRLEdkNoKovT546tdYPw6dFZIvAmqzr1iesMS1A/vr1659WPl1EUqjawcHBd1ouXLhc4VnP2w/QGIYvVlhbXd2d48ePfw1jnEe7u4cAHGt3lETeVmNaDLBU4dtqIVW9Dwir2VgWx4Siem+FLY6if4DjAksNkBH4sTpJoA44fyvxKjvP8L1VNH5WyEjW8y4DfyFy9obX2ocQSSLSXZ2kqvMAROQnRjrmo1rAmJNVbAYwzQB6Gye9bUsAfwOdfhCsr8BOz9spIo/4QbCkOrhyyX4QjBgJnZ73g4gc94NgbRXbLrDYAD3A3OoEEelDdcr/PaXAVBXpGwFV5wK/GS0PrceOum7dDae1vwLpozNn1t5KPI65J84pM9etE5H5ItKRcKxtt8a8PySyFtjckcncRT4/AVXJF4sfdqbTeRGZCNQC8wCynvcVcBG4WCiVkoAYY0xHJjOuqacnX3Cc11Gt0VKpXeJ+7RR4HsgBsxkegpeAM8AAqgOILIxbeEytnUi58P0Mj4pB4DviUeGH4VoDYFVbgSSQVpFX1JgHRWQHMDiQSi3yw7DJj6JVwAngRGMQrPSjqHEglXoCuAx8BDwusBF4GBiXgFYqJ22KohBrVwO1AnOO9faesSLbgWmp/v5VY/U/9k1TYz7oCsPvVWQGMAHV1c+GYXSjAICfy+0HNqC6foHntTmJRCiwF5HNnZ43abT44XR6MiLvCewdZ0y00PPaUX0D2OBH0ReVuBEbzQ/DbVi7AnimVCj0qEgvMAnVtuoih9PpySVj2oCJFoJCsdij8BSqLX4YbqvWvOnSP+J56SHYJOWln4jxeaAYv9cwPHuKwMcJaK205ZYFKpZ13XpxnGZVXQY0UF4uUF5Cv4vIAS2V2v1cLhhL419BIdWTL4gvUgAAAABJRU5ErkJggg=="
+                width="12" height="12" alt="Web"
+                style="display:inline-block;margin-right:4px;vertical-align:-2px;border:0;" />
+
+              <a href="https://vidratek.com" style="color:#b91c1c;text-decoration:none;font-weight:700;">
+                vidratek.com
+              </a>
+            </div>
+
+            <div style="height:10px;"></div>
+
+            <!-- PHONE + PHONE -->
+            <div style="font-size:13px;line-height:18px;color:#111827;white-space:nowrap;">
+              <span style="display:inline-block;vertical-align:middle;">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAkhJREFUSImtlE9IFGEYxn/vzCplCAYGgQgdgg4hQR2CDoEUER1LPBSku6sHZ7dGJVm8SdHFpFXcXdjQXTHoMLcg6OQpKjHq0inokJQZqSRolms7bxeVbdw/Ovmcvm+eh+c37/fBJ3g0kszaCvcUXlepcT0abVvyZvYi2Vo4jmPOL66NqmpXgT+1vDB7aWBgwPULMLYWXxfWHnjKAS7U1R+L+i2HzQlGUhNnVHWmEFiglQ3DPN7XdfO7H4ABoKqxEuUAtdVuPuSnHMBwHMcELpYLqXDKN2Bu6WcjcLhsyuWdb4ApWlM2oTxZXpyN+wUEyLGAWaJa6Let9kERUb8AARhOZr8ADR5vqjsSLHs3u5EBICLPi3jr/1u+Dcijk0W85qF0un5fAL1W8AUw7fEOmhtV9/cFAKCu3AH+uUwR6YwnMy37Aui51f4SyHh8EWT8YWLipF+AFG7S6XTN7z/V0wpNnty8S/58b6Tjo7cgnsicFpFORVZF8mPdVvhDSQDAcGr8BGq8AWo91pxrGFd7u9pmtsuTmRZBHgMHNj+ti9BnW8HRkgCA4dGJaxjqsPMBXAdJqeE+QzkratwFDexskIRttd0WES0KABhJZYKqMlYEsispOtgTCcVKAgDiiUyHiDyixKQVlNdAoLHs3/VEQ2MiGkbJ7b1ffuQCudWK49tWKCuizcCnPbR/E+FyLBxe2dX52pHQqyrWmhQZAn5ViE+brnnOttrfgo+zTSazRzeQG6heQWgC6oDPCu+ByYYjh562trbmt/J/AfbBwvxIukt2AAAAAElFTkSuQmCC"
+                  width="14" height="14" style="vertical-align:-2px;margin-right:6px;border:0;" />
+                <a id="phoneLink" href="tel:0974932991" style="color:#111827;text-decoration:none;">
+                  <span id="phoneText">0974 932 991</span>
+                </a>
+              </span>
+              <span style="color:#d1d5db;margin:0 6px;">|</span>
+              <span style="display:inline-block;vertical-align:middle;">
+                <a href="tel:0974932991" style="color:#111827;text-decoration:none;">
+                  0974 932 991
+                </a>
+              </span>
+            </div>
+
+            <!-- EMAILS -->
+            <div style="font-size:13px;line-height:18px;color:#111827;margin-top:4px;white-space:nowrap;">
+              <span style="display:inline-block;vertical-align:middle;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAiNJREFUSIntlUtLlVEUhp+19ne8hySBUkJCOah5k0o938F+iOEkHIT9hmhsA6edCKIfEfmJdoGcF2TBgQx1Et6y8nx7rQZe0OOxQ2qT6B3utffzsPaFDf/TIALwcPLRdXe5gaKnQjVMxF/dHbv9WsrlcsvGBn1RyYCeUxHAUjDSjg4qurrJDNhaMFJg8RTgi9ssW1vdZEaBa1F1uproenQtAl9OAF/W4MOqrETR58C13T3vV7NMAt8kkB5TsqzBSyHK1yo+hXAVOHCo/Wr20pzqMSRLGrzEVlyrIrMgV3YLtbemT4zsDyVLTihVI+sWChn45f3FeteyD2NaqyF35SZQOZotC0YcMPKNIHIIfpQAgYu5xizJg7iS1pfIgpGnjv4MIhnOpXqshg9r/M5IJfFYrJF8NvL03tjox0brZWKy7HVa+BTdU1UJGI8TCyOq8fsWPi4uXhAm8iQ0WR6fOHH0d13U66DiwrBgzWIyKzAUNb7JneJWi99XKzzIhZLn8a3AkJJkgjVrnhdBDnVUK5jXmA+oUFCSDLx3Z7zbhWfNP3TFQnXFnadA93bJe5Uk86aktYAPgL8/SjBvqqk3Ja0e2Q+vnS+Hh73XIzMxeFcBKeG8OyAQ+GCqqUfat+FcqANvlB6LMhWDd5HnexIF5tQs9Uh7EDsufDfdFmXKksK54HYLmNPONgZj4MwO/PwJ4HsSFX9RlXC2s43Bv/7hnArv384vPFsABPLCfMcAAAAASUVORK5CYII=" width="14" height="14"
+                  style="vertical-align:-2px;margin-right:6px;border:0;" />
+                <a id="emailLink" href="mailto:thien.nguyen@vidratek.com" style="color:#111827;text-decoration:none;">
+                  <span id="emailText">thien.nguyen@vidratek.com</span>
+                </a>
+              </span>
+
+              <span style="color:#d1d5db;margin:0 6px;">|</span>
+
+              <span style="display:inline-block;vertical-align:middle;">
+                <a href="mailto:contact@vidratek.com" style="color:#111827;text-decoration:none;">
+                  contact@vidratek.com
+                </a>
+              </span>
+            </div>
+            <!-- ADDRESS -->
+            <div style="font-size:12px;line-height:16px;color:#6b7280;margin-top:6px;">
+              178/9/12 DHT42, Dong Hung Thuan, HCMC
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
