@@ -42,7 +42,7 @@
         files
           .filter(f => f.type === "file")
           .forEach(f => {
-            const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${f.name}`;
+            const rawUrl = `https://${owner}.github.io/${repo}/${f.name}`;
             const li = document.createElement("li");
             li.innerHTML = `📄 <a class="file" href="${rawUrl}" target="_blank">${f.name}</a>`;
             ul.appendChild(li);
