@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>VIDRATEK Public Assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    h1 { margin-bottom: 8px; }
+    p { color: #555; }
+    ul { padding-left: 18px; }
+    li { margin: 6px 0; }
+    a { text-decoration: none; color: #2563eb; }
+    a:hover { text-decoration: underline; }
+    .file { font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>📁 VIDRATEK – Public Assets</h1>
+  <p>Danh sách file public (dùng cho email signature, website, CDN tạm thời).</p>
+
+  <ul id="files">
+    <li>Loading…</li>
+  </ul>
+
+  <script>
+    const owner = "vidratek";
+    const repo = "vidratek-public-assets";
+    const branch = "main";
+
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents?ref=${branch}`)
+      .then(res => res.json())
+      .then(files => {
+        const ul = document.getElementById("files");
+        ul.innerHTML = "";
+
+        files
+          .filter(f => f.type === "file")
+          .forEach(f => {
+            const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${f.name}`;
+            const li = document.createElement("li");
+            li.innerHTML = `📄 <a class="file" href="${rawUrl}" target="_blank">${f.name}</a>`;
+            ul.appendChild(li);
+          });
+      })
+      .catch(err => {
+        document.getElementById("files").innerHTML =
+          "<li>❌ Không load được danh sách file</li>";
+      });
+  </script>
+</body>
+</html>
